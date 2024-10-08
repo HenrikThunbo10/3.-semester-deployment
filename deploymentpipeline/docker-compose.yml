@@ -1,0 +1,21 @@
+services:
+  db:
+    image: postgres:latest
+    container_name: db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - ./data:/var/lib/postgresql/data/
+    ports:
+      - "5432:5432"
+
+  javalin-api:
+    image: henrikthunbo10/javalin-api-pipeline:latest
+    container_name: javalin-api
+    restart: unless-stopped
+    ports:
+      - "7070:7070"
+    depends_on:
+        - db
