@@ -88,7 +88,7 @@ import java.util.Properties;
         }
         private static Properties setDevProperties(Properties props, String DBName){
             props.put("hibernate.connection.url", "jdbc:postgresql://db:5432/"+ DBName);
-            // postgres som kode, hvis ikke man har ændret koden
+            // jpostgres som kode, hvis ikke man har ændret koden
             props.put("hibernate.connection.username", "postgres");
             props.put("hibernate.connection.password", "postgres");
             return props;
